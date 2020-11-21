@@ -1,0 +1,18 @@
+.app {
+  &__wrapper {
+    width: 1050px;
+    margin: 0 auto;
+    padding: 0 25px;
+  }
+}
+
+.main {
+  display: flex;
+  align-items: stretch;
+}
+
+.content {
+  width: 100%;
+  min-height: 800px;
+}
+
