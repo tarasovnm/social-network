@@ -12,4 +12,8 @@
     color: #ffffff;
     text-decoration: none;
   }
+
+  &__link.active {
+    color: darkblue;
+  }
 }

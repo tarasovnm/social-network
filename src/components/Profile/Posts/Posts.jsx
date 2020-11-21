@@ -5,8 +5,8 @@ function Posts() {
     return (
         <div className={s.posts}>
             <h3 className={s.posts__title}>My posts</h3>
-            <Post message="Hi, how are you today?"/>
-            <Post message="It's my firts post!"/>
+            <Post message="Hi, how are you today?" />
+            <Post message="It's my firts post!" />
         </div>
     );
 }
