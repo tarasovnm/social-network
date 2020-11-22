@@ -1,3 +1,34 @@
 .dialogs {
-  background-color: aliceblue;
+  padding: 20px;
+  background-color: rgba(#2fc0d0, 0.2);
+
+  &__title {
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__list {
+    width: 180px;
+    padding: 10px;
+  }
+
+  .dialog {
+    margin-bottom: 20px;
+  }
+
+  .dialog.active {
+    color: darkblue;
+  }
+
+  &__messages {
+    padding: 10px;
+  }
+
+  .message {
+    margin-bottom: 20px;
+  }
 }
