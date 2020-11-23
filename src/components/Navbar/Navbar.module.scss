@@ -1,8 +1,12 @@
 .navbar {
-  width: 250px;
+  width: 280px;
   padding: 15px 20px;
   margin-right: 20px;
   background-color: #2fc0d0;
+
+  &__nav {
+    margin-bottom: 80px;
+  }
 
   &__item {
     padding: 5px 0;

@@ -1,0 +1,20 @@
+.friend {
+  margin-bottom: 10px;
+
+  &__name {
+    color: #ffffff;
+    font-size: 14px;margin-top: 5px;
+    margin-bottom: 0;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: cornflowerblue;
+    margin: 0 auto;
+  }
+}
