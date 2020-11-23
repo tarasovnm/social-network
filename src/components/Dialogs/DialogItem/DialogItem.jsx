@@ -1,4 +1,4 @@
-import s from "../Dialogs.module.scss";
+import s from "./DialogItem.module.scss";
 import {NavLink} from "react-router-dom";
 
 function DialogItem(props) {

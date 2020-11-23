@@ -1,9 +1,9 @@
 import s from './Friend.module.scss'
 
-function Friend() {
+function Friend(props) {
     return (
-        <div className={s.friend}>
-            <p className={s.friend__name}>Andrew</p>
+        <div className={s.friend} key={props.id}>
+            <p className={s.friend__name}>{props.name}</p>
         </div>
     );
 }

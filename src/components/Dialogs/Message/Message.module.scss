@@ -1,0 +1,31 @@
+.message {
+  display: flex;
+  justify-content: start;
+  margin-bottom: 20px;
+
+  &__user {
+    font-size: 12px;
+    text-align: center;
+    width: 50px;
+    margin-right: 20px;
+
+    &:before {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 40px;
+      background-color: blueviolet;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+  }
+
+  &__text {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #2fc0d0;
+    border-radius: 5px;
+  }
+}

@@ -12,23 +12,14 @@
   }
 
   &__list {
-    width: 180px;
+    width: 150px;
     padding: 10px;
-  }
-
-  .dialog {
-    margin-bottom: 20px;
-  }
-
-  .dialog.active {
-    color: darkblue;
+    list-style: disc;
+    margin-left: 20px;
   }
 
   &__messages {
     padding: 10px;
-  }
-
-  .message {
-    margin-bottom: 20px;
+    width: 400px;
   }
 }

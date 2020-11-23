@@ -45,17 +45,41 @@ let state = {
             [
                 {
                     id: 1,
+                    user: 'Dmitry',
                     message: 'Hi'
                 },
                 {
                     id: 2,
+                    user: 'Me',
                     message: 'Hi! How are You?'
                 },
                 {
                     id: 3,
+                    user: 'Me',
                     message: 'Fine! Thanks!'
+                },
+                {
+                    id: 4,
+                    user: 'Dmitry',
+                    message: 'Good!'
                 }
             ]
+    },
+    sidebar: {
+        friends: [
+            {
+                id: 1,
+                name: 'Andrew'
+            },
+            {
+                id: 2,
+                name: 'Sveta'
+            },
+            {
+                id: 3,
+                name: 'Alex'
+            }
+        ]
     }
 }
 

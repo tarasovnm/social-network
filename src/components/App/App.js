@@ -12,9 +12,9 @@ function App(props) {
     return (
         <BrowserRouter>
             <div className={s.app}>
-                <Header/>
+                <Header />
                 <main className={s.main}>
-                    <Navbar/>
+                    <Navbar state={props.state.sidebar} />
                     <div className={s.content}>
                         <Route path='/profile' render={ () => <Profile state={props.state.profilePage} />}/>
                         <Route path='/dialogs' render={ () => <Dialogs state={props.state.messagesPage}/>}/>
