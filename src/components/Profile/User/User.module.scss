@@ -1,6 +1,14 @@
 .user {
-  display: flex;
   margin-bottom: 20px;
+
+  &__img {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  &__wrapper {
+    display: flex;
+  }
 
   &__photo {
     width: 140px;
