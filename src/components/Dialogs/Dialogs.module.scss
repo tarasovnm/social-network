@@ -22,4 +22,23 @@
     padding: 10px;
     width: 400px;
   }
+
+  &__textarea {
+    width: 100%;
+    min-height: 60px;
+  }
+
+  &__button {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #2fc0d0;
+    border: 1px solid #2fc0d0;
+
+    &:active {
+      color: #2fc0d0;
+      background-color: #ffffff;
+    }
+  }
 }

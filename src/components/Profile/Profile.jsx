@@ -6,7 +6,10 @@ function Profile(props) {
     return (
         <div className={s.profile}>
             <User />
-            <Posts posts={props.state.posts}/>
+            <Posts posts={props.state.posts}
+                   newPostText={props.state.newPostText}
+                   updateNewPostText={props.updateNewPostText}
+                   addPost={props.addPost}/>
         </div>
     );
 }

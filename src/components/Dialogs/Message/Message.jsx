@@ -7,7 +7,7 @@ function Message(props) {
                 {props.user}
             </div>
             <div className={s.message__text}>
-            {props.message}
+                {props.message}
             </div>
         </li>
     );
