@@ -21,7 +21,10 @@ function Posts(props) {
         <div className={s.posts}>
             <h3 className={s.posts__title}>My posts</h3>
             <div>
-                <textarea className={s.posts__textarea} onChange={postChange} ref={newPostElement} value={props.newPostText} />
+                <textarea className={s.posts__textarea}
+                          onChange={postChange}
+                          ref={newPostElement}
+                          value={props.newPostText} />
             </div>
             <div>
                 <button className={s.posts__button} onClick={addPost}>Add post</button>
