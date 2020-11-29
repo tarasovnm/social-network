@@ -3,22 +3,20 @@ import {Route} from "react-router-dom";
 import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import Profile from "../Profile/Profile";
-import Dialogs from "../Dialogs/Dialogs";
 import News from "../News/News";
 import Music from "../Music/Music";
 import Settings from "../Settings/Settings";
+import DialogsContainer from "../Dialogs/DialogsContainer";
 
 function App(props) {
     return (
         <div className={s.app}>
             <Header/>
             <main className={s.main}>
-                <Navbar state={props.state.sidebar}/>
+                <Navbar />
                 <div className={s.content}>
-                    <Route path='/profile' render={() => <Profile state={props.state.profilePage}
-                                                                  dispatch={props.dispatch}/>}/>
-                    <Route path='/dialogs' render={() => <Dialogs state={props.state.messagesPage}
-                                                                  dispatch={props.dispatch}/>} />
+                    <Route path='/profile' render={() => <Profile />}/>
+                    <Route path='/dialogs' render={() => <DialogsContainer />} />
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>
                     <Route path='/settings' component={Settings}/>
