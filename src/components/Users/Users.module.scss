@@ -1,0 +1,36 @@
+.user {
+  display: flex;
+  margin-bottom: 20px;
+
+  &__avatar {
+    text-align: center;
+    margin-right: 10px;
+  }
+
+  &__pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #2fc0d0;
+    border-radius: 10px;
+  }
+
+  &__name {
+    margin: 0;
+    font-weight: bold;
+  }
+
+  &__status {
+    margin: 0;
+    font-size: 16px;
+  }
+}
