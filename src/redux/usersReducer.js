@@ -3,41 +3,7 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 
 const initialState = {
-    users: [
-        {
-            "name": "test_01",
-            "id": 12991,
-            "uniqueUrlName": null,
-            "photos": {
-                "small": null,
-                "large": null
-            },
-            "status": null,
-            "followed": false
-        },
-        {
-            "name": "_ADjo_",
-            "id": 12990,
-            "uniqueUrlName": null,
-            "photos": {
-                "small": null,
-                "large": null
-            },
-            "status": null,
-            "followed": false
-        },
-        {
-            "name": "Adjo",
-            "id": 12989,
-            "uniqueUrlName": null,
-            "photos": {
-                "small": null,
-                "large": null
-            },
-            "status": null,
-            "followed": true
-        }
-    ]
+    users: []
 };
 
 const usersReducer = (state = initialState, action) => {
