@@ -6,16 +6,39 @@ import * as axios from "axios";
 class Users extends React.Component {
 
     componentDidMount() {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users')
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageUsersCount}`)
             .then(response => {
                 this.props.setUsers(response.data.items);
+                this.props.setUsersCount(response.data.totalCount);
+            });
+    }
+
+    onPageChanged = (pageNumber) => {
+        this.props.setCurrentPage(pageNumber);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageUsersCount}`)
+            .then(response => {
+                this.props.setUsers(response.data.items);
+                this.props.setUsersCount(response.data.totalCount);
             });
     }
 
     render = () => {
+        const pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageUsersCount);
+        let pages = new Array(pagesCount)
+            .fill('')
+            .slice(0, 5)
+            .map((_, index) => {
+                let selected = (this.props.currentPage === index + 1) && s.selected_page;
+                let val = index + 1
+                selected = selected ? selected : '';
+                return <span className={selected}
+                             onClick={() => this.onPageChanged(val)}
+                             key={val}> {val} </span>
+            });
+
         return (
-            <div>
-                <div>
+            <div className={s.users}>
+                <div className={s.users__list}>
                     {this.props.users.map(u => {
 
                         const followUser = () => {
@@ -42,6 +65,11 @@ class Users extends React.Component {
                         );
                     })}
                 </div>
+
+                <div className={s.users__pagination}>
+                    <span>Страницы:</span> {pages}
+                </div>
+
             </div>
         );
     }
