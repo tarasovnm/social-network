@@ -1,79 +1,57 @@
-import React from "react";
-import s from './Users.module.scss';
-import userPic from '../../images/user.png';
-import * as axios from "axios";
+import s from "./Users.module.scss";
+import userPic from "../../images/user.png";
 
-class Users extends React.Component {
+const Users = (props) => {
 
-    componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageUsersCount}`)
-            .then(response => {
-                this.props.setUsers(response.data.items);
-                this.props.setUsersCount(response.data.totalCount);
-            });
-    }
+    const pagesCount = Math.ceil(props.totalUsersCount / props.pageUsersCount);
+    let pages = new Array(pagesCount)
+        .fill('')
+        .slice(0, 5)
+        .map((_, index) => {
+            let selected = (props.currentPage === index + 1) && s.selected_page;
+            let val = index + 1
+            selected = selected ? selected : '';
+            return <span className={selected}
+                         onClick={() => props.onPageChanged(val)}
+                         key={val}> {val} </span>
+        });
 
-    onPageChanged = (pageNumber) => {
-        this.props.setCurrentPage(pageNumber);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageUsersCount}`)
-            .then(response => {
-                this.props.setUsers(response.data.items);
-                this.props.setUsersCount(response.data.totalCount);
-            });
-    }
+    return (
+        <div className={s.users}>
+            <div className={s.users__list}>
+                {props.users.map(u => {
 
-    render = () => {
-        const pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageUsersCount);
-        let pages = new Array(pagesCount)
-            .fill('')
-            .slice(0, 5)
-            .map((_, index) => {
-                let selected = (this.props.currentPage === index + 1) && s.selected_page;
-                let val = index + 1
-                selected = selected ? selected : '';
-                return <span className={selected}
-                             onClick={() => this.onPageChanged(val)}
-                             key={val}> {val} </span>
-            });
+                    const followUser = () => {
+                        u.followed ? props.unfollow(u.id) : props.follow(u.id);
+                    }
 
-        return (
-            <div className={s.users}>
-                <div className={s.users__list}>
-                    {this.props.users.map(u => {
-
-                        const followUser = () => {
-                            u.followed ? this.props.unfollow(u.id) : this.props.follow(u.id);
-                        }
-
-                        return (
-                            <div className={s.user} key={u.id}>
-                                <div className={s.user__avatar}>
-                                    <div className={s.user__pic}>
-                                        <img src={userPic} alt="User avatar"/>
-                                    </div>
-                                    <button className={s.user__follow}
-                                            onClick={followUser}>
-                                        {u.followed ? 'Unfollow' : 'Follow'}
-                                    </button>
+                    return (
+                        <div className={s.user} key={u.id}>
+                            <div className={s.user__avatar}>
+                                <div className={s.user__pic}>
+                                    <img src={userPic} alt="User avatar"/>
                                 </div>
-
-                                <div className={s.user__info}>
-                                    <p className={s.user__name}>{u.name}</p>
-                                    <p className={s.user__status}>Статус статус статус</p>
-                                </div>
+                                <button className={s.user__follow}
+                                        onClick={followUser}>
+                                    {u.followed ? 'Unfollow' : 'Follow'}
+                                </button>
                             </div>
-                        );
-                    })}
-                </div>
 
-                <div className={s.users__pagination}>
-                    <span>Страницы:</span> {pages}
-                </div>
-
+                            <div className={s.user__info}>
+                                <p className={s.user__name}>{u.name}</p>
+                                <p className={s.user__status}>Статус статус статус</p>
+                            </div>
+                        </div>
+                    );
+                })}
             </div>
-        );
-    }
+
+            <div className={s.users__pagination}>
+                <span>Страницы:</span> {pages}
+            </div>
+
+        </div>
+    );
 }
 
 export default Users;
-
