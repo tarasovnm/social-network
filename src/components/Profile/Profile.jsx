@@ -5,7 +5,7 @@ import PostsContainer from "./Posts/PostsConainer";
 function Profile(props) {
     return (
         <div className={s.profile}>
-            <User />
+            <User profile={props.profile}/>
             <PostsContainer />
         </div>
     );

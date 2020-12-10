@@ -2,7 +2,8 @@ import s from './User.module.scss';
 import photo from "../../../images/gintoki.jpg";
 import profileBg from "../../../images/profile-bg.jpg";
 
-function User() {
+function User(props) {
+    console.log(props.profile)
     return (
         <div className={s.user}>
             <img className={s.user__img} src={profileBg} alt="Profile header"/>
