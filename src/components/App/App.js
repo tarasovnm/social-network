@@ -16,7 +16,7 @@ function App(props) {
             <main className={s.main}>
                 <Navbar />
                 <div className={s.content}>
-                    <Route path='/profile' component={ProfileContainer}/>
+                    <Route path='/profile/:userId?' component={ProfileContainer}/>
                     <Route path='/dialogs' component={DialogsContainer} />
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>

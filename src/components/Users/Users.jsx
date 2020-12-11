@@ -4,6 +4,8 @@ import {NavLink} from "react-router-dom";
 
 const Users = (props) => {
 
+    console.log(props.users);
+
     const pagesCount = Math.ceil(props.totalUsersCount / props.pageUsersCount);
     let pages = new Array(pagesCount)
         .fill('')
@@ -31,7 +33,7 @@ const Users = (props) => {
                             <div className={s.user__avatar}>
                                 <NavLink to={"/profile/" + u.id}>
                                     <div className={s.user__pic}>
-                                        <img src={userPic} alt="User avatar"/>
+                                        <img src={u.photos.large ? u.photos.large : userPic} alt="User avatar"/>
                                     </div>
                                 </NavLink>
                                 <button className={s.user__follow}
