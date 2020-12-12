@@ -1,10 +1,9 @@
 import s from "./Users.module.scss";
 import userPic from "../../images/user.png";
 import {NavLink} from "react-router-dom";
+import * as axios from "axios";
 
 const Users = (props) => {
-
-    console.log(props.users);
 
     const pagesCount = Math.ceil(props.totalUsersCount / props.pageUsersCount);
     let pages = new Array(pagesCount)
@@ -25,7 +24,32 @@ const Users = (props) => {
                 {props.users.map(u => {
 
                     const followUser = () => {
-                        u.followed ? props.unfollow(u.id) : props.follow(u.id);
+                        if(u.followed) {
+                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                                withCredentials: true,
+                                headers: {
+                                    "API-KEY": "a75ac896-223c-438e-83b5-42698bbaede9"
+                                }
+                            })
+                                .then(response => {
+                                    if (response.data.resultCode === 0) {
+                                        props.unfollow(u.id);
+                                    }
+                                });
+
+                        } else {
+                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                                withCredentials: true,
+                                headers: {
+                                    "API-KEY": "a75ac896-223c-438e-83b5-42698bbaede9"
+                                }
+                            })
+                                .then(response => {
+                                    if (response.data.resultCode === 0) {
+                                        props.follow(u.id);
+                                    }
+                                });
+                        }
                     }
 
                     return (

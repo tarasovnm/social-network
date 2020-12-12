@@ -1,9 +1,17 @@
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
   padding: 10px 20px;
   margin: 20px 0;
   background-color: #2fc0d0;
 
   &__logo {
+    display: block;
     width: 40px;
+  }
+
+  &__login {
+    padding: 7px 0;
   }
 }
