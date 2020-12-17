@@ -1,6 +1,6 @@
 import s from './Profile.module.scss';
 import User from './User/User';
-import PostsContainer from "./Posts/PostsConainer";
+import PostsContainer from "./Posts/PostsContainer";
 
 function Profile(props) {
     return (
