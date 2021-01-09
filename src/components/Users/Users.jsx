@@ -1,7 +1,6 @@
 import s from "./Users.module.scss";
 import userPic from "../../images/user.png";
 import { NavLink } from "react-router-dom";
-import { usersAPI } from "../../api/api";
 
 const Users = (props) => {
 
@@ -24,24 +23,10 @@ const Users = (props) => {
         {props.users.map(u => {
 
           const followUser = () => {
-            props.toggleFollowingInProgress(true, u.id);
             if (u.followed) {
-              usersAPI.unfollowUser(u.id)
-                .then(response => {
-                  if (response.data.resultCode === 0) {
-                    props.unfollow(u.id);
-                  }
-                  props.toggleFollowingInProgress(false, u.id);
-                });
-
+              props.unfollow(u.id);
             } else {
-              usersAPI.followUser(u.id)
-                .then(response => {
-                  if (response.data.resultCode === 0) {
-                    props.follow(u.id);
-                  }
-                  props.toggleFollowingInProgress(false, u.id);
-                });
+              props.follow(u.id);
             }
           }
 
