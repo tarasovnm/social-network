@@ -12,15 +12,28 @@ export const usersAPI = {
   getUsers(currentPage = 1, pageUsersCount = 10) {
     return instance.get(`users?page=${currentPage}&count=${pageUsersCount}`).then(response => response.data);
   },
-  getProfileData(userId) {
-    return instance.get(`profile/` + userId).then(response => response.data);
-  },
   followUser(userId) {
     return instance.post(`follow/${userId}`);
   },
   unfollowUser(userId) {
     return instance.delete(`follow/${userId}`);
   },
+  getProfileData(userId) {
+    console.warn('Osolete method. Please use ProfileAPI');
+    return profileAPI.getProfileData(userId);
+  },
+}
+
+export const profileAPI = {
+  getProfileData(userId) {
+    return instance.get(`profile/` + userId).then(response => response.data);
+  },
+  getStatus(userId) {
+    return instance.get(`profile/status/` + userId);
+  },
+  updateStatus(status) {
+    return instance.put(`profile/status/`, { status });
+  }
 }
 
 export const authAPI = {
