@@ -1,7 +1,7 @@
 import s from './Profile.module.scss';
 import User from './User/User';
 import PostsContainer from "./Posts/PostsContainer";
-import ProfileStatus from "./ProfileStatus";
+import ProfileStatus from "./ProfileStatus/ProfileStatus";
 
 function Profile(props) {
   return (
