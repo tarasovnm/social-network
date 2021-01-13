@@ -1,5 +1,5 @@
 import s from './Login.module.scss';
-import {Field, reduxForm} from 'redux-form'
+import { Field, reduxForm } from 'redux-form';
 
 const LoginForm = (props) => {
   return (
@@ -22,7 +22,7 @@ const LoginForm = (props) => {
   );
 }
 
-const LoginReduxForm = reduxForm({form: 'login'})(LoginForm);
+const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm);
 
 const Login = (props) => {
   const onSubmit = (formData) => {
