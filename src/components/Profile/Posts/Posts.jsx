@@ -1,22 +1,7 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
 import Post from './Post/Post';
 import s from './Posts.module.scss';
-
-function PostsForm(props) {
-  return (
-    <form onSubmit={props.handleSubmit}>
-      <div>
-        <Field className={s.posts__textarea} name="newPostText" component="textarea" />
-      </div>
-      <div>
-        <button className={s.posts__button}>Add post</button>
-      </div>
-    </form>
-  );
-}
-
-const PostsReduxForm = reduxForm({ form: 'login' })(PostsForm);
+import PostsForm from "./PostsForm/PostsForm";
 
 function Posts(props) {
 
@@ -29,7 +14,7 @@ function Posts(props) {
   return (
     <div className={s.posts}>
       <h3 className={s.posts__title}>My posts</h3>
-      <PostsReduxForm onSubmit={addPost} />
+      <PostsForm onSubmit={addPost} />
       {posts}
     </div>
   );
